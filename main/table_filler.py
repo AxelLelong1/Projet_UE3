@@ -67,8 +67,7 @@ def fill_measurement_table(data: pd.DataFrame, mapping: pd.DataFrame):
     # Filtrer les données pour ne garder que les examens et bactéries d'intérêt
     filtered_data = data[
         (data['spec_type_desc'].isin(allowed_specs)) & 
-        (data['org_name'].isin(allowed_orgs)) &
-        (data['hadm_id'].notnull())
+        (data['org_name'].isin(allowed_orgs))
     ].reset_index(drop=True)
 
     MEASUREMENT['measurement_id'] = filtered_data.index
@@ -89,8 +88,7 @@ def fill_measurement_table(data: pd.DataFrame, mapping: pd.DataFrame):
 def fill_drug_exposure_table(data: pd.DataFrame, mapping: pd.DataFrame):
 
     filtered_data = data[
-        ((data['drug']).str.upper().isin(allowed_drugs)) & 
-        (data['hadm_id'].notnull())
+        ((data['drug']).str.upper().isin(allowed_drugs))
     ].reset_index(drop=True)
 
     DRUG_EXPOSURE = pd.DataFrame()
