@@ -82,6 +82,7 @@ def fill_measurement_table(data: pd.DataFrame, mapping: pd.DataFrame):
     MEASUREMENT['measurement_type_concept_id'] = 32817
 
     MEASUREMENT['measurement_source_value'] = filtered_data['spec_type_desc']
+    MEASUREMENT['value_source_value'] = filtered_data['org_name']
 
     return MEASUREMENT
 
